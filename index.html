@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terços da Graça — Artesanato com Amor e Fé</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ─── NAVBAR ─── -->
+    <nav>
+      <a href="#" class="nav-brand">MariaMãe <span>Terços</span></a>
+      <button
+        class="nav-toggle"
+        aria-label="Menu"
+        onclick="
+          this.classList.toggle('active');
+          document.querySelector('.nav-links').classList.toggle('open');
+        "
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#catalogo">Mostruário</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+      <div class="hero-bg-ornament">
+        <svg
+          viewBox="0 0 500 500"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="250"
+            cy="250"
+            r="240"
+            stroke="#b8922a"
+            stroke-width="1.5"
+          />
+          <circle
+            cx="250"
+            cy="250"
+            r="200"
+            stroke="#b8922a"
+            stroke-width="0.8"
+          />
+          <circle
+            cx="250"
+            cy="250"
+            r="10"
+            stroke="#b8922a"
+            stroke-width="1.5"
+          />
+          <line
+            x1="250"
+            y1="10"
+            x2="250"
+            y2="490"
+            stroke="#b8922a"
+            stroke-width="0.6"
+          />
+          <line
+            x1="10"
+            y1="250"
+            x2="490"
+            y2="250"
+            stroke="#b8922a"
+            stroke-width="0.6"
+          />
+          <line
+            x1="80"
+            y1="80"
+            x2="420"
+            y2="420"
+            stroke="#b8922a"
+            stroke-width="0.6"
+          />
+          <line
+            x1="420"
+            y1="80"
+            x2="80"
+            y2="420"
+            stroke="#b8922a"
+            stroke-width="0.6"
+          />
+          <polygon
+            points="250,30 290,120 380,120 310,185 340,275 250,215 160,275 190,185 120,120 210,120"
+            stroke="#b8922a"
+            stroke-width="0.8"
+            fill="none"
+          />
+        </svg>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-eyebrow">Feito com amor e fé</div>
+        <h1>Terços <em>artesanais</em><br />que tocam a alma</h1>
+        <p class="hero-subtitle">
+          Cada conta, uma oração. Cada fio, uma história.
+        </p>
+        <p class="hero-desc">
+          Criados à mão com carinho e devoção, nossos terços são muito mais do
+          que objetos religiosos — são presentes de graça para quem você ama.
+        </p>
+        <a href="#catalogo" class="hero-cta"> ✦ Ver Mostruário </a>
+      </div>
+      <div class="hero-divider"></div>
+    </section>
+
+    <!-- ─── SOBRE ─── -->
+    <section class="about" id="sobre">
+      <div class="about-visual">
+        <div class="about-icon-circle">🙏</div>
+        <p class="about-caption">Artesã & Mãe de família</p>
+      </div>
+      <div class="about-text">
+        <h2>Uma <span>mãe</span> que faz<br />com o coração</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+          distinctio ad accusamus excepturi aspernatur unde, at autem minus
+          nobis. Eos nisi ex nihil quis porro ut perferendis, pariatur ab
+          tempora!
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi id
+          architecto, tenetur nam doloribus dicta dolorum expedita et
+          dignissimos iure laborum quos alias, similique maxime. Cum ullam qui
+          eaque aspernatur!
+        </p>
+        <div class="about-badges">
+          <span class="badge">✦ 100% Artesanal</span>
+          <span class="badge">✦ Materiais de qualidade</span>
+          <span class="badge">✦ Encomendas especiais</span>
+          <span class="badge">✦ Entrega em todo o Brasil</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── DIVISOR ─── -->
+    <div class="ornament-divider" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+    <!-- ─── CATÁLOGO / TABS ─── -->
+    <section class="catalog" id="catalogo">
+      <div class="catalog-header">
+        <h2>Mostruário de Terços</h2>
+        <p>
+          Conheça as nossas coleções — toque e sinta a devoção em cada detalhe
+        </p>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button
+          class="tab-btn active"
+          role="tab"
+          aria-selected="true"
+          onclick="switchTab(event, 'normais')"
+        >
+          Terços Tradicionais
+        </button>
+        <button
+          class="tab-btn"
+          role="tab"
+          aria-selected="false"
+          onclick="switchTab(event, 'sao-bento')"
+        >
+          Terços de São Bento
+        </button>
+        <button
+          class="tab-btn"
+          role="tab"
+          aria-selected="false"
+          onclick="switchTab(event, 'personalizados')"
+        >
+          Personalizados
+        </button>
+      </div>
+
+      <!-- PAINEL 1: TRADICIONAIS -->
+      <div class="tab-panel active" id="panel-normais">
+        <div class="panel-intro">
+          <h3>Terços Tradicionais</h3>
+          <p>
+            Clássicos e elegantes, feitos com contas de cristal, madeira e
+            acrílico em diversas cores. Ideais para devoção diária ou para
+            presentear.
+          </p>
+        </div>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-img">
+              📿
+              <div class="product-img-overlay"></div>
+              <div class="product-tag">Popular</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Terço Cristal Branco</div>
+              <p class="product-desc">
+                Contas de cristal translúcido com crucifixo dourado. Suave,
+                luminoso e cheio de delicadeza — perfeito para primeiras
+                comunhões e batizados.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Cristal</span>
+                <span class="material-tag">Fio Nylon</span>
+                <span class="material-tag">Crucifixo Dourado</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background: #e8d5b7">
+              📿
+              <div class="product-img-overlay"></div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Terço de Madeira Natural</div>
+              <p class="product-desc">
+                Contas torneadas em madeira com aroma suave. Rústico e
+                acolhedor, evoca a espiritualidade simples do campo e da família
+                reunida.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Madeira</span>
+                <span class="material-tag">Fio Encerado</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background: #d6e0f0">
+              📿
+              <div class="product-img-overlay"></div>
+              <div class="product-tag">Novidade</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Terço Azul Nossa Senhora</div>
+              <p class="product-desc">
+                Em tons de azul sereno, dedicado à devoção mariana. Perfeito
+                para o mês de maio ou para quem tem devoção especial à Virgem
+                Maria.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Acrílico</span>
+                <span class="material-tag">Medalha de Fátima</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background: #f0e0d6">
+              📿
+              <div class="product-img-overlay"></div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Terço Infantil Colorido</div>
+              <p class="product-desc">
+                Contas grandes e coloridas, perfeitas para as mãozinhas das
+                crianças. Incentiva a oração desde cedo de forma alegre e
+                divertida.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Acrílico</span>
+                <span class="material-tag">Colorido</span>
+                <span class="material-tag">Infantil</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAINEL 2: SÃO BENTO -->
+      <div class="tab-panel" id="panel-sao-bento">
+        <div class="panel-intro">
+          <h3>Terços de São Bento</h3>
+          <p>
+            Com a poderosa Medalha de São Bento — proteção contra o mal e
+            bênçãos para o lar. Tradição e espiritualidade em cada conta.
+          </p>
+        </div>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-img" style="background: #e0ddd5">
+              📿
+              <div class="product-img-overlay"></div>
+              <div class="product-tag">Proteção</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">São Bento Clássico Preto</div>
+              <p class="product-desc">
+                Contas pretas com medalha de São Bento em prata. Tradição
+                beneditina com acabamento refinado. Indicado para adultos e
+                jovens.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Hematita</span>
+                <span class="material-tag">Medalha Prateada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background: #f5f0e8">
+              📿
+              <div class="product-img-overlay"></div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">São Bento Osso de Búfalo</div>
+              <p class="product-desc">
+                Contas em osso natural com medalha bênta. Aparência rústica e
+                robusta, muito valorizado por homens e jovens que buscam
+                proteção espiritual.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Osso Natural</span>
+                <span class="material-tag">Medalha Bênta</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background: #dde8dd">
+              📿
+              <div class="product-img-overlay"></div>
+              <div class="product-tag">Para Crianças</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">São Bento Infantil Verde</div>
+              <p class="product-desc">
+                Versão especial para crianças, com contas coloridas e a medalha
+                protetora de São Bento. Ideal para presentear na primeira
+                comunhão ou batismo.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Acrílico</span>
+                <span class="material-tag">Medalha S. Bento</span>
+                <span class="material-tag">Infantil</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background: #e8e0f0">
+              📿
+              <div class="product-img-overlay"></div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">São Bento Lilás Feminino</div>
+              <p class="product-desc">
+                Delicado e poderoso. Contas em lilás com medalha de São Bento
+                bênta, perfeito para mulheres que desejam proteção com
+                elegância.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Cristal</span>
+                <span class="material-tag">Medalha Dourada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAINEL 3: PERSONALIZADOS -->
+      <div class="tab-panel" id="panel-personalizados">
+        <div class="custom-banner">
+          <h3>Um terço feito só para você</h3>
+          <p>
+            Escolha as cores, os materiais e o santo de sua devoção. Criamos um
+            terço único, com a sua intenção gravada em cada conta, para você ou
+            para presentear com ainda mais significado.
+          </p>
+          <div class="custom-steps">
+            <div class="custom-step">
+              <div class="custom-step-num">1</div>
+              <p>Escolha as cores e materiais</p>
+            </div>
+            <div class="custom-step">
+              <div class="custom-step-num">2</div>
+              <p>Informe o santo ou devoção</p>
+            </div>
+            <div class="custom-step">
+              <div class="custom-step-num">3</div>
+              <p>Receba seu terço único</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-intro">
+          <h3>Exemplos Personalizados</h3>
+          <p>
+            Veja algumas das encomendas especiais que já fizemos com amor. O seu
+            pode ser ainda mais único!
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-img" style="background: #f5e8e2">
+              📿
+              <div class="product-img-overlay"></div>
+              <div class="product-tag">Encomenda</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Terço de Casamento</div>
+              <p class="product-desc">
+                Em branco e dourado, com medalha especial e fita de cetim
+                personalizada com o nome do casal e a data do casamento.
+                Lembrança inesquecível.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Cristal Branco</span>
+                <span class="material-tag">Detalhes Dourados</span>
+                <span class="material-tag">Personalizado</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background: #e8f0e8">
+              📿
+              <div class="product-img-overlay"></div>
+              <div class="product-tag">Encomenda</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Terço de Formatura</div>
+              <p class="product-desc">
+                Nas cores da turma, com medalha do padroeiro do curso. Presente
+                significativo para uma conquista que merece ser celebrada com
+                fé.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Cor Personalizada</span>
+                <span class="material-tag">Medalha à Escolha</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background: #f0e8f5">
+              📿
+              <div class="product-img-overlay"></div>
+              <div class="product-tag">Encomenda</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Terço Cor Favorita</div>
+              <p class="product-desc">
+                Perfeito para presentear quem você ama. Feito nas cores
+                favoritas da pessoa, com o santo de sua devoção. Feito sob
+                medida para o coração.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Qualquer Cor</span>
+                <span class="material-tag">Qualquer Santo</span>
+                <span class="material-tag">100% Único</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img" style="background: #e8ecf5">
+              📿
+              <div class="product-img-overlay"></div>
+              <div class="product-tag">Encomenda</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Kit Família</div>
+              <p class="product-desc">
+                Terços combinados para toda a família — pais e filhos com contas
+                que se complementam, simbolizando a união pela fé e pelo amor.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Kit Família</span>
+                <span class="material-tag">Combinados</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CONTATO ─── -->
+    <section class="contact-section" id="contato">
+      <h2>Gostou de algum terço?</h2>
+      <p>
+        Entre em contato pelo WhatsApp para tirar dúvidas, fazer encomendas
+        personalizadas ou combinar a entrega. Será um prazer atendê-la com
+        carinho!
+      </p>
+      <a
+        href="https://wa.me/5500000000000?text=Olá!%20Vi%20os%20terços%20artesanais%20e%20gostaria%20de%20mais%20informações."
+        class="whatsapp-btn"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+          />
+        </svg>
+        Falar no WhatsApp
+      </a>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+      <strong>Terços da Graça</strong>
+      Feitos com fé, amor e muito carinho — para a glória de Deus e a alegria
+      das famílias.<br />
+      © 2025 · Todos os direitos reservados
+    </footer>
+
+    <script>
+      function switchTab(e, id) {
+        document.querySelectorAll(".tab-btn").forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        document
+          .querySelectorAll(".tab-panel")
+          .forEach((p) => p.classList.remove("active"));
+        e.currentTarget.classList.add("active");
+        e.currentTarget.setAttribute("aria-selected", "true");
+        document.getElementById("panel-" + id).classList.add("active");
+      }
+    </script>
+  </body>
+</html>

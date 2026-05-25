@@ -1,0 +1,869 @@
+*{
+  user-select: none;
+  cursor:default;
+}
+
+:root {
+  --cream: #faf6f0;
+  --warm-white: #fff9f2;
+  --gold: #b8922a;
+  --gold-light: #d4aa4e;
+  --gold-pale: #f0e2c0;
+  --brown-deep: #3a2410;
+  --brown-mid: #6b4226;
+  --brown-light: #a06040;
+  --rose: #c4856a;
+  --rose-pale: #f5e8e2;
+  --text-dark: #2a1a0e;
+  --text-mid: #6b4a30;
+  --text-light: #9b7a5a;
+
+  /* Surface tokens (light default) */
+  --bg-page: var(--cream);
+  --bg-card: var(--warm-white);
+  --bg-nav: rgba(250, 246, 240, 0.95);
+  --bg-contact: var(--rose-pale);
+  --border-subtle: var(--gold-pale);
+  --heading: var(--brown-deep);
+  --body-mid: var(--text-mid);
+  --body-light: var(--text-light);
+}
+
+[data-theme="dark"] {
+  --bg-page: #1a110a;
+  --bg-card: #241710;
+  --bg-nav: rgba(20, 13, 7, 0.95);
+  --bg-contact: #2a1a10;
+  --border-subtle: rgba(184, 146, 42, 0.2);
+  --heading: #f0e2c0;
+  --body-mid: #c8a882;
+  --body-light: #9b7a5a;
+  --cream: #1a110a;
+  --warm-white: #241710;
+  --gold-pale: rgba(184, 146, 42, 0.15);
+  --rose-pale: #2a1a10;
+  --rose: #d4956a;
+  --text-dark: #f0e2c0;
+  --text-mid: #c8a882;
+  --text-light: #9b7a5a;
+  --brown-deep: #f0e2c0;
+  --brown-mid: #d4b88a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+/* ─── TEXTURA DE FUNDO ─── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      ellipse at 20% 10%,
+      rgba(184, 146, 42, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 90%,
+      rgba(196, 133, 106, 0.07) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── NAVBAR ─── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-nav);
+  transition: background 0.35s ease;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gold-pale);
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.nav-brand {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--brown-deep);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.nav-brand span {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.25s;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 5% 4rem;
+  overflow: hidden;
+}
+
+.hero-bg-ornament {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0.045;
+}
+
+.hero-bg-ornament svg {
+  width: min(90vw, 700px);
+  height: auto;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold-light);
+}
+
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--brown-deep);
+  margin-bottom: 0.3em;
+  animation: fadeUp 0.9s 0.1s ease both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 2.2rem;
+  animation: fadeUp 1s 0.2s ease both;
+}
+
+.hero-desc {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto 2.8rem;
+  animation: fadeUp 1s 0.3s ease both;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--brown-deep);
+  color: var(--gold-pale);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 1rem 2.2rem;
+  text-decoration: none;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+  animation: fadeUp 1s 0.4s ease both;
+}
+
+.hero-cta:hover {
+  background: var(--brown-mid);
+  transform: translateY(-2px);
+}
+
+.hero-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--cream));
+}
+
+/* ─── SEÇÃO: SOBRE ─── */
+.about {
+  padding: 5rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-visual {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.about-icon-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  border: 2px solid rgba(184, 146, 42, 0.25);
+}
+
+.about-caption {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.about-text h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--brown-deep);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.about-text h2 span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.about-text p {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--text-mid);
+  margin-bottom: 0.9rem;
+}
+
+.about-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border: 1.5px solid var(--gold-pale);
+  color: var(--brown-mid);
+  background: var(--warm-white);
+}
+
+/* ─── SEPARADOR ORNAMENTAL ─── */
+.ornament-divider {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--gold-light);
+  font-size: 1.4rem;
+  letter-spacing: 0.5rem;
+  opacity: 0.7;
+}
+
+/* ─── TABS / MOSTRUÁRIO ─── */
+.catalog {
+  padding: 2rem 5% 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.catalog-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.catalog-header h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--brown-deep);
+  margin-bottom: 0.5rem;
+}
+
+.catalog-header p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-bottom: 2px solid var(--gold-pale);
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  padding: 1rem 2rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tab-btn.active {
+  color: var(--brown-deep);
+}
+
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+.tab-btn:hover {
+  color: var(--brown-mid);
+}
+
+/* Painéis */
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.panel-intro h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--brown-deep);
+  margin-bottom: 0.5rem;
+}
+
+.panel-intro p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* Grid de produtos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-pale);
+  overflow: hidden;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(58, 36, 16, 0.1);
+}
+
+.product-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  background: var(--gold-pale);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(184, 146, 42, 0.08), transparent);
+}
+
+.product-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--brown-deep);
+  color: var(--gold-pale);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+}
+
+.product-info {
+  padding: 1.4rem;
+}
+
+.product-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--brown-deep);
+  margin-bottom: 0.4rem;
+}
+
+.product-desc {
+  font-size: 0.83rem;
+  color: var(--text-light);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.product-materials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.material-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  background: var(--rose-pale);
+  color: var(--rose);
+  border-radius: 2px;
+}
+
+/* Painel personalizado — diferenciado */
+.custom-banner {
+  background: var(--brown-deep);
+  color: var(--cream);
+  padding: 3rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-banner::before {
+  content: "✦";
+  position: absolute;
+  font-size: 12rem;
+  opacity: 0.04;
+  top: -2rem;
+  left: -2rem;
+  color: var(--gold);
+}
+
+.custom-banner h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gold-pale);
+  margin-bottom: 0.6rem;
+}
+
+.custom-banner p {
+  font-size: 0.9rem;
+  color: rgba(250, 246, 240, 0.7);
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.75;
+}
+
+.custom-steps {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.custom-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 140px;
+}
+
+.custom-step-num {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--gold-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  color: var(--gold-light);
+}
+
+.custom-step p {
+  font-size: 0.78rem;
+  color: rgba(250, 246, 240, 0.65);
+  text-align: center;
+  margin: 0;
+}
+
+/* ─── CONTATO / CTA WHATSAPP ─── */
+.contact-section {
+  background: var(--bg-contact);
+  transition: background 0.35s ease;
+  padding: 5rem 5%;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--brown-deep);
+  margin-bottom: 0.7rem;
+}
+
+.contact-section p {
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: #25d366;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1.1rem 2.4rem;
+  text-decoration: none;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+  border-radius: 2px;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+}
+
+.whatsapp-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--brown-deep);
+  color: rgba(250, 246, 240, 0.5);
+  text-align: center;
+  padding: 2.5rem 5%;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  line-height: 2;
+}
+
+footer strong {
+  color: var(--gold-pale);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* ─── ANIMAÇÕES ─── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── DARK MODE TOGGLE ─── */
+.theme-toggle {
+  background: none;
+  border: 1.5px solid var(--border-subtle);
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1rem;
+  transition:
+    border-color 0.3s,
+    background 0.3s,
+    transform 0.2s;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--gold-pale);
+  transform: rotate(20deg);
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+.theme-toggle .icon-moon {
+  display: block;
+}
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+/* dark mode — hero divider */
+[data-theme="dark"] .hero-divider {
+  background: linear-gradient(to bottom, transparent, var(--bg-page));
+}
+
+/* dark mode — nav mobile bg */
+[data-theme="dark"] .nav-links {
+  background: var(--bg-page);
+}
+
+/* dark mode — badge */
+[data-theme="dark"] .badge {
+  background: var(--bg-page);
+  border-color: var(--border-page);
+  color: var(--body-page);
+}
+
+/* dark mode — footer */
+[data-theme="dark"] footer {
+  background: #0f0906;
+}
+
+/* dark mode — custom banner */
+[data-theme="dark"] .custom-banner {
+  background: #0f0906;
+}
+
+/* dark mode — body overlay */
+[data-theme="dark"] body::before {
+  background-image:
+    radial-gradient(
+      ellipse at 20% 10%,
+      rgba(184, 146, 42, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 90%,
+      rgba(196, 133, 106, 0.06) 0%,
+      transparent 50%
+    );
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--brown-deep);
+  transition: all 0.3s;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    flex-direction: column;
+    padding: 1.5rem 5%;
+    gap: 1.2rem;
+    border-bottom: 1px solid var(--gold-pale);
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-badges {
+    justify-content: center;
+  }
+
+  .custom-steps {
+    gap: 1.5rem;
+  }
+
+  .custom-banner {
+    padding: 2rem 1.5rem;
+  }
+}
