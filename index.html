@@ -9,6 +9,12 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- ─── NAVBAR ─── -->
@@ -31,76 +37,104 @@
       </ul>
     </nav>
 
+    <!-- ─── BOTÃO FLUTUANTE MODO NOTURNO ─── -->
+    <button
+      class="theme-fab"
+      aria-label="Alternar modo noturno"
+      onclick="toggleTheme()"
+    >
+      <svg
+        class="icon-moon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+      </svg>
+      <svg
+        class="icon-sun"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <circle cx="12" cy="12" r="5" />
+        <line
+          x1="12"
+          y1="1"
+          x2="12"
+          y2="3"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <line
+          x1="12"
+          y1="21"
+          x2="12"
+          y2="23"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <line
+          x1="4.22"
+          y1="4.22"
+          x2="5.64"
+          y2="5.64"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <line
+          x1="18.36"
+          y1="18.36"
+          x2="19.78"
+          y2="19.78"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <line
+          x1="1"
+          y1="12"
+          x2="3"
+          y2="12"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <line
+          x1="21"
+          y1="12"
+          x2="23"
+          y2="12"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <line
+          x1="4.22"
+          y1="19.78"
+          x2="5.64"
+          y2="18.36"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <line
+          x1="18.36"
+          y1="5.64"
+          x2="19.78"
+          y2="4.22"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
+
     <!-- ─── HERO ─── -->
     <section class="hero">
-      <div class="hero-bg-ornament">
-        <svg
-          viewBox="0 0 500 500"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="250"
-            cy="250"
-            r="240"
-            stroke="#b8922a"
-            stroke-width="1.5"
-          />
-          <circle
-            cx="250"
-            cy="250"
-            r="200"
-            stroke="#b8922a"
-            stroke-width="0.8"
-          />
-          <circle
-            cx="250"
-            cy="250"
-            r="10"
-            stroke="#b8922a"
-            stroke-width="1.5"
-          />
-          <line
-            x1="250"
-            y1="10"
-            x2="250"
-            y2="490"
-            stroke="#b8922a"
-            stroke-width="0.6"
-          />
-          <line
-            x1="10"
-            y1="250"
-            x2="490"
-            y2="250"
-            stroke="#b8922a"
-            stroke-width="0.6"
-          />
-          <line
-            x1="80"
-            y1="80"
-            x2="420"
-            y2="420"
-            stroke="#b8922a"
-            stroke-width="0.6"
-          />
-          <line
-            x1="420"
-            y1="80"
-            x2="80"
-            y2="420"
-            stroke="#b8922a"
-            stroke-width="0.6"
-          />
-          <polygon
-            points="250,30 290,120 380,120 310,185 340,275 250,215 160,275 190,185 120,120 210,120"
-            stroke="#b8922a"
-            stroke-width="0.8"
-            fill="none"
-          />
-        </svg>
-      </div>
-
       <div class="hero-content">
         <div class="hero-eyebrow">Feito com amor e fé</div>
         <h1>Terços <em>artesanais</em><br />que tocam a alma</h1>
@@ -197,7 +231,7 @@
         <div class="products-grid">
           <div class="product-card">
             <div class="product-img">
-              📿
+              <img src="./imagens/WhatsApp Image 2026-05-26 at 12.09.13.jpeg"">
               <div class="product-img-overlay"></div>
               <div class="product-tag">Popular</div>
             </div>
@@ -208,6 +242,7 @@
                 luminoso e cheio de delicadeza — perfeito para primeiras
                 comunhões e batizados.
               </p>
+              <div class="product-price">R$ 50,00</div>
               <div class="product-materials">
                 <span class="material-tag">Cristal</span>
                 <span class="material-tag">Fio Nylon</span>
@@ -518,6 +553,24 @@
     </footer>
 
     <script>
+      function toggleTheme() {
+        const current = document.documentElement.getAttribute("data-theme");
+        document.documentElement.setAttribute(
+          "data-theme",
+          current === "dark" ? "light" : "dark",
+        );
+        localStorage.setItem(
+          "theme",
+          document.documentElement.getAttribute("data-theme"),
+        );
+      }
+
+      // Apply saved theme on load
+      (function () {
+        const saved = localStorage.getItem("theme");
+        if (saved) document.documentElement.setAttribute("data-theme", saved);
+      })();
+
       function switchTab(e, id) {
         document.querySelectorAll(".tab-btn").forEach((b) => {
           b.classList.remove("active");

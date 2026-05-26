@@ -1,6 +1,6 @@
-*{
+* {
   user-select: none;
-  cursor:default;
+  cursor: default;
 }
 
 :root {
@@ -30,24 +30,28 @@
 }
 
 [data-theme="dark"] {
-  --bg-page: #1a110a;
-  --bg-card: #241710;
-  --bg-nav: rgba(20, 13, 7, 0.95);
-  --bg-contact: #2a1a10;
-  --border-subtle: rgba(184, 146, 42, 0.2);
-  --heading: #f0e2c0;
-  --body-mid: #c8a882;
-  --body-light: #9b7a5a;
-  --cream: #1a110a;
-  --warm-white: #241710;
-  --gold-pale: rgba(184, 146, 42, 0.15);
-  --rose-pale: #2a1a10;
-  --rose: #d4956a;
-  --text-dark: #f0e2c0;
-  --text-mid: #c8a882;
-  --text-light: #9b7a5a;
-  --brown-deep: #f0e2c0;
-  --brown-mid: #d4b88a;
+  --bg-page: #0d0900;
+  --bg-card: #171006;
+  --bg-nav: rgba(10, 7, 0, 0.96);
+  --bg-contact: #130e03;
+  --border-subtle: rgba(212, 170, 78, 0.3);
+  --heading: #f0d98a;
+  --body-mid: #c8a84a;
+  --body-light: #8a7040;
+  --cream: #0d0900;
+  --warm-white: #171006;
+  --gold-pale: rgba(212, 170, 78, 0.12);
+  --rose-pale: #1a1205;
+  --rose: #c8a84a;
+  --text-dark: #f0d98a;
+  --text-mid: #c8a84a;
+  --text-light: #8a7040;
+  --brown-deep: #f0d98a;
+  --brown-mid: #d4aa4e;
+  --gold: #d4aa4e;
+  --gold-light: #e0c060;
+  --border-page: rgba(212, 170, 78, 0.25);
+  --body-page: #c8a84a;
 }
 
 * {
@@ -107,12 +111,13 @@ nav {
 }
 
 .nav-brand {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 500;
   color: var(--brown-deep);
   letter-spacing: 0.04em;
   text-decoration: none;
+  font-family: "Rouge Script", cursive;
+  font-style: normal;
 }
 
 .nav-brand span {
@@ -559,6 +564,13 @@ nav {
   gap: 0.4rem;
 }
 
+.product-price {
+  font-size: 1.25rem;   
+  font-weight: bold;        
+  color: #1fac59;           
+  margin-top: 10px;         
+}
+
 .material-tag {
   font-size: 0.65rem;
   font-weight: 700;
@@ -579,16 +591,6 @@ nav {
   margin-bottom: 2.5rem;
   position: relative;
   overflow: hidden;
-}
-
-.custom-banner::before {
-  content: "✦";
-  position: absolute;
-  font-size: 12rem;
-  opacity: 0.04;
-  top: -2rem;
-  left: -2rem;
-  color: var(--gold);
 }
 
 .custom-banner h3 {
@@ -729,42 +731,71 @@ footer strong {
   }
 }
 
-/* ─── DARK MODE TOGGLE ─── */
-.theme-toggle {
-  background: none;
-  border: 1.5px solid var(--border-subtle);
-  cursor: pointer;
-  width: 38px;
-  height: 38px;
+/* ─── BOTÃO FLUTUANTE MODO NOTURNO ─── */
+.theme-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
+  background: var(--brown-deep);
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold);
-  font-size: 1rem;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.25),
+    0 0 0 0 rgba(212, 170, 78, 0.4);
   transition:
-    border-color 0.3s,
     background 0.3s,
-    transform 0.2s;
-  flex-shrink: 0;
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
-.theme-toggle:hover {
-  background: var(--gold-pale);
-  transform: rotate(20deg);
+.theme-fab:hover {
+  transform: scale(1.12) rotate(15deg);
+  box-shadow:
+    0 6px 28px rgba(0, 0, 0, 0.3),
+    0 0 0 6px rgba(212, 170, 78, 0.15);
 }
 
-.theme-toggle .icon-sun {
+.theme-fab svg {
+  width: 22px;
+  height: 22px;
+  transition:
+    opacity 0.2s,
+    transform 0.3s;
+}
+
+.theme-fab .icon-sun {
   display: none;
 }
-.theme-toggle .icon-moon {
+.theme-fab .icon-moon {
   display: block;
 }
-[data-theme="dark"] .theme-toggle .icon-sun {
+[data-theme="dark"] .theme-fab .icon-sun {
   display: block;
 }
-[data-theme="dark"] .theme-toggle .icon-moon {
+[data-theme="dark"] .theme-fab .icon-moon {
   display: none;
+}
+
+[data-theme="dark"] .theme-fab {
+  background: #d4aa4e;
+  color: #0d0900;
+  border-color: #0d0900;
+  box-shadow: 0 4px 20px rgba(212, 170, 78, 0.3);
+}
+
+[data-theme="dark"] .theme-fab:hover {
+  background: #e0c060;
+  box-shadow:
+    0 6px 28px rgba(212, 170, 78, 0.4),
+    0 0 0 6px rgba(212, 170, 78, 0.1);
 }
 
 /* dark mode — hero divider */
@@ -774,24 +805,56 @@ footer strong {
 
 /* dark mode — nav mobile bg */
 [data-theme="dark"] .nav-links {
-  background: var(--bg-page);
+  background: #0d0900;
 }
 
 /* dark mode — badge */
 [data-theme="dark"] .badge {
-  background: var(--bg-page);
-  border-color: var(--border-page);
-  color: var(--body-page);
+  background: #0d0900;
+  border-color: rgba(212, 170, 78, 0.35);
+  color: #c8a84a;
 }
 
 /* dark mode — footer */
 [data-theme="dark"] footer {
-  background: #0f0906;
+  background: #080600;
+  color: rgba(212, 170, 78, 0.55);
+}
+
+[data-theme="dark"] footer strong {
+  color: #d4aa4e;
 }
 
 /* dark mode — custom banner */
 [data-theme="dark"] .custom-banner {
-  background: #0f0906;
+  background: #080600;
+  border: 1px solid rgba(212, 170, 78, 0.15);
+}
+
+/* dark mode — product card hover */
+[data-theme="dark"] .product-card:hover {
+  box-shadow: 0 12px 40px rgba(212, 170, 78, 0.12);
+}
+
+/* dark mode — product tag */
+[data-theme="dark"] .product-tag {
+  background: #d4aa4e;
+  color: #0d0900;
+}
+
+/* dark mode — hero cta */
+[data-theme="dark"] .hero-cta {
+  background: #d4aa4e;
+  color: #0d0900;
+}
+[data-theme="dark"] .hero-cta:hover {
+  background: #e0c060;
+}
+
+/* dark mode — material tag */
+[data-theme="dark"] .material-tag {
+  background: rgba(212, 170, 78, 0.1);
+  color: #c8a84a;
 }
 
 /* dark mode — body overlay */
@@ -799,14 +862,30 @@ footer strong {
   background-image:
     radial-gradient(
       ellipse at 20% 10%,
-      rgba(184, 146, 42, 0.08) 0%,
+      rgba(212, 170, 78, 0.07) 0%,
       transparent 50%
     ),
     radial-gradient(
       ellipse at 80% 90%,
-      rgba(196, 133, 106, 0.06) 0%,
+      rgba(212, 170, 78, 0.05) 0%,
       transparent 50%
     );
+}
+
+/* dark mode — about icon circle */
+[data-theme="dark"] .about-icon-circle {
+  background: rgba(212, 170, 78, 0.1);
+  border-color: rgba(212, 170, 78, 0.3);
+}
+
+/* dark mode — product img default bg */
+[data-theme="dark"] .product-img {
+  background: #1c1508;
+}
+
+/* dark mode — nav toggle bars */
+[data-theme="dark"] .nav-toggle span {
+  background: #d4aa4e;
 }
 
 .nav-toggle {
