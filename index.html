@@ -16,6 +16,53 @@
       rel="stylesheet"
     />
   </head>
+  <!-- Modal -->
+<div id="modal" class="modal" onclick="fecharModalFora(event)">
+  <button class="modal-btn modal-prev" onclick="event.stopPropagation(); navegarModal(-1)">&#8249;</button>
+  <img id="modal-img" src="" alt="" />
+  <button class="modal-btn modal-next" onclick="event.stopPropagation(); navegarModal(1)">&#8250;</button>
+</div>
+
+  <script>
+    let imagensModal = [];
+let indexModal = 0;
+
+function abrirModal(container) {
+  // Pega todas as imagens do painel ativo
+  const painelAtivo = document.querySelector('.tab-panel.active');
+  imagensModal = Array.from(painelAtivo.querySelectorAll('.product-img img'));
+  
+  const imgClicada = container.querySelector('img');
+  indexModal = imagensModal.indexOf(imgClicada);
+
+  atualizarModal();
+  document.getElementById('modal').classList.add('ativo');
+}
+
+function atualizarModal() {
+  document.getElementById('modal-img').src = imagensModal[indexModal].src;
+}
+
+function navegarModal(direcao) {
+  indexModal = (indexModal + direcao + imagensModal.length) % imagensModal.length;
+  atualizarModal();
+}
+
+function fecharModalFora(e) {
+  if (e.target === document.getElementById('modal')) fecharModal();
+}
+
+function fecharModal() {
+  document.getElementById('modal').classList.remove('ativo');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('modal').classList.contains('ativo')) return;
+  if (e.key === 'Escape') fecharModal();
+  if (e.key === 'ArrowLeft') navegarModal(-1);
+  if (e.key === 'ArrowRight') navegarModal(1);
+});
+  </script>
   <body>
     <!-- ─── NAVBAR ─── -->
     <nav>
@@ -216,7 +263,6 @@
         >
           Personalizados
         </button>
-      </div>
 
       <!-- PAINEL 1: TRADICIONAIS -->
       <div class="tab-panel active" id="panel-normais">
@@ -230,10 +276,10 @@
         </div>
         <div class="products-grid">
           <div class="product-card">
-            <div class="product-img">
-              <img src="./imagens/WhatsApp Image 2026-05-26 at 12.09.13.jpeg"">
+            <div class="product-img" onclick="abrirModal(this)">
+              <img src="./imagens/terco1.jpeg" />
               <div class="product-img-overlay"></div>
-              <div class="product-tag">Popular</div>
+              <!-- product-tag para promoções!!! -->
             </div>
             <div class="product-info">
               <div class="product-name">Terço Cristal Branco</div>
@@ -252,8 +298,8 @@
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background: #e8d5b7">
-              📿
+            <div class="product-img"  style="background: #e8d5b7">
+              <img src="./imagens/terco.jpeg" alt="">
               <div class="product-img-overlay"></div>
             </div>
             <div class="product-info">
@@ -519,7 +565,6 @@
           </div>
         </div>
       </div>
-    </section>
 
     <!-- ─── CONTATO ─── -->
     <section class="contact-section" id="contato">

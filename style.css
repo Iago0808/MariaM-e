@@ -509,7 +509,8 @@ nav {
 }
 
 .product-img {
-  width: 100%;
+  max-width: 331px;
+  max-height: 331px;
   aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
@@ -518,12 +519,69 @@ nav {
   background: var(--gold-pale);
   position: relative;
   overflow: hidden;
+  cursor: zoom-in;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.modal.ativo {
+  display: flex;
+}
+
+.modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modal-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  font-size: 3rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+  line-height: 1;
+  user-select: none;
+}
+
+.modal-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-prev {
+  left: 1.5rem;
+}
+.modal-next {
+  right: 1.5rem;
+}
+
+.product-img img {
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .product-img-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(184, 146, 42, 0.08), transparent);
+  cursor: pointer;
 }
 
 .product-tag {
@@ -565,10 +623,10 @@ nav {
 }
 
 .product-price {
-  font-size: 1.25rem;   
-  font-weight: bold;        
-  color: #1fac59;           
-  margin-top: 10px;         
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1fac59;
+  margin-top: 10px;
 }
 
 .material-tag {
