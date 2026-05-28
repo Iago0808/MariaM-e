@@ -16,54 +16,76 @@
       rel="stylesheet"
     />
   </head>
-  <!-- Modal -->
-<div id="modal" class="modal" onclick="fecharModalFora(event)">
-  <button class="modal-btn modal-prev" onclick="event.stopPropagation(); navegarModal(-1)">&#8249;</button>
-  <img id="modal-img" src="" alt="" />
-  <button class="modal-btn modal-next" onclick="event.stopPropagation(); navegarModal(1)">&#8250;</button>
-</div>
 
-  <script>
-    let imagensModal = [];
-let indexModal = 0;
-
-function abrirModal(container) {
-  // Pega todas as imagens do painel ativo
-  const painelAtivo = document.querySelector('.tab-panel.active');
-  imagensModal = Array.from(painelAtivo.querySelectorAll('.product-img img'));
-  
-  const imgClicada = container.querySelector('img');
-  indexModal = imagensModal.indexOf(imgClicada);
-
-  atualizarModal();
-  document.getElementById('modal').classList.add('ativo');
-}
-
-function atualizarModal() {
-  document.getElementById('modal-img').src = imagensModal[indexModal].src;
-}
-
-function navegarModal(direcao) {
-  indexModal = (indexModal + direcao + imagensModal.length) % imagensModal.length;
-  atualizarModal();
-}
-
-function fecharModalFora(e) {
-  if (e.target === document.getElementById('modal')) fecharModal();
-}
-
-function fecharModal() {
-  document.getElementById('modal').classList.remove('ativo');
-}
-
-document.addEventListener('keydown', (e) => {
-  if (!document.getElementById('modal').classList.contains('ativo')) return;
-  if (e.key === 'Escape') fecharModal();
-  if (e.key === 'ArrowLeft') navegarModal(-1);
-  if (e.key === 'ArrowRight') navegarModal(1);
-});
-  </script>
   <body>
+    <!-- Modal -->
+    <div id="modal" class="modal" onclick="fecharModalFora(event)">
+      <button
+        class="modal-btn modal-prev"
+        onclick="
+          event.stopPropagation();
+          navegarModal(-1);
+        "
+      >
+        &#8249;
+      </button>
+      <img id="modal-img" src="" alt="" />
+      <button
+        class="modal-btn modal-next"
+        onclick="
+          event.stopPropagation();
+          navegarModal(1);
+        "
+      >
+        &#8250;
+      </button>
+    </div>
+
+    <script>
+      let imagensModal = [];
+      let indexModal = 0;
+
+      function abrirModal(container) {
+        // Pega todas as imagens do painel ativo
+        const painelAtivo = document.querySelector(".tab-panel.active");
+        imagensModal = Array.from(
+          painelAtivo.querySelectorAll(".product-img img"),
+        );
+
+        const imgClicada = container.querySelector("img");
+        indexModal = imagensModal.indexOf(imgClicada);
+
+        atualizarModal();
+        document.getElementById("modal").classList.add("ativo");
+      }
+
+      function atualizarModal() {
+        document.getElementById("modal-img").src = imagensModal[indexModal].src;
+      }
+
+      function navegarModal(direcao) {
+        indexModal =
+          (indexModal + direcao + imagensModal.length) % imagensModal.length;
+        atualizarModal();
+      }
+
+      function fecharModalFora(e) {
+        if (e.target === document.getElementById("modal")) fecharModal();
+      }
+
+      function fecharModal() {
+        document.getElementById("modal").classList.remove("ativo");
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (!document.getElementById("modal").classList.contains("ativo"))
+          return;
+        if (e.key === "Escape") fecharModal();
+        if (e.key === "ArrowLeft") navegarModal(-1);
+        if (e.key === "ArrowRight") navegarModal(1);
+      });
+    </script>
+
     <!-- ─── NAVBAR ─── -->
     <nav>
       <a href="#" class="nav-brand">MariaMãe <span>Terços</span></a>
@@ -263,6 +285,7 @@ document.addEventListener('keydown', (e) => {
         >
           Personalizados
         </button>
+      </div>
 
       <!-- PAINEL 1: TRADICIONAIS -->
       <div class="tab-panel active" id="panel-normais">
@@ -298,8 +321,12 @@ document.addEventListener('keydown', (e) => {
           </div>
 
           <div class="product-card">
-            <div class="product-img"  style="background: #e8d5b7">
-              <img src="./imagens/terco.jpeg" alt="">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #e8d5b7"
+            >
+              <img src="./imagens/terco.jpeg" alt="" />
               <div class="product-img-overlay"></div>
             </div>
             <div class="product-info">
@@ -317,8 +344,12 @@ document.addEventListener('keydown', (e) => {
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background: #d6e0f0">
-              📿
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #d6e0f0"
+            >
+              <img src="./imagens/tradicional.jpeg" alt="" />
               <div class="product-img-overlay"></div>
               <div class="product-tag">Novidade</div>
             </div>
@@ -337,8 +368,12 @@ document.addEventListener('keydown', (e) => {
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background: #f0e0d6">
-              📿
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #f0e0d6"
+            >
+              <img src="./imagens/tradicional2.jpeg" alt="" />
               <div class="product-img-overlay"></div>
             </div>
             <div class="product-info">
@@ -352,6 +387,30 @@ document.addEventListener('keydown', (e) => {
                 <span class="material-tag">Acrílico</span>
                 <span class="material-tag">Colorido</span>
                 <span class="material-tag">Infantil</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #d6e0f0"
+            >
+              <img src="./imagens/tradicional3.jpeg" alt="" />
+              <div class="product-img-overlay"></div>
+              <div class="product-tag">Novidade</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Terço Azul Nossa Senhora</div>
+              <p class="product-desc">
+                Em tons de azul sereno, dedicado à devoção mariana. Perfeito
+                para o mês de maio ou para quem tem devoção especial à Virgem
+                Maria.
+              </p>
+              <div class="product-materials">
+                <span class="material-tag">Acrílico</span>
+                <span class="material-tag">Medalha de Fátima</span>
               </div>
             </div>
           </div>
@@ -369,7 +428,11 @@ document.addEventListener('keydown', (e) => {
         </div>
         <div class="products-grid">
           <div class="product-card">
-            <div class="product-img" style="background: #e0ddd5">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #e0ddd5"
+            >
               📿
               <div class="product-img-overlay"></div>
               <div class="product-tag">Proteção</div>
@@ -389,7 +452,11 @@ document.addEventListener('keydown', (e) => {
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background: #f5f0e8">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #f5f0e8"
+            >
               📿
               <div class="product-img-overlay"></div>
             </div>
@@ -408,7 +475,11 @@ document.addEventListener('keydown', (e) => {
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background: #dde8dd">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #dde8dd"
+            >
               📿
               <div class="product-img-overlay"></div>
               <div class="product-tag">Para Crianças</div>
@@ -429,7 +500,11 @@ document.addEventListener('keydown', (e) => {
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background: #e8e0f0">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #e8e0f0"
+            >
               📿
               <div class="product-img-overlay"></div>
             </div>
@@ -484,7 +559,11 @@ document.addEventListener('keydown', (e) => {
 
         <div class="products-grid">
           <div class="product-card">
-            <div class="product-img" style="background: #f5e8e2">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #f5e8e2"
+            >
               📿
               <div class="product-img-overlay"></div>
               <div class="product-tag">Encomenda</div>
@@ -505,7 +584,11 @@ document.addEventListener('keydown', (e) => {
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background: #e8f0e8">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #e8f0e8"
+            >
               📿
               <div class="product-img-overlay"></div>
               <div class="product-tag">Encomenda</div>
@@ -525,7 +608,11 @@ document.addEventListener('keydown', (e) => {
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background: #f0e8f5">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #f0e8f5"
+            >
               📿
               <div class="product-img-overlay"></div>
               <div class="product-tag">Encomenda</div>
@@ -546,7 +633,11 @@ document.addEventListener('keydown', (e) => {
           </div>
 
           <div class="product-card">
-            <div class="product-img" style="background: #e8ecf5">
+            <div
+              class="product-img"
+              onclick="abrirModal(this)"
+              style="background: #e8ecf5"
+            >
               📿
               <div class="product-img-overlay"></div>
               <div class="product-tag">Encomenda</div>
@@ -565,6 +656,7 @@ document.addEventListener('keydown', (e) => {
           </div>
         </div>
       </div>
+    </section>
 
     <!-- ─── CONTATO ─── -->
     <section class="contact-section" id="contato">
