@@ -640,6 +640,10 @@ nav {
   border-radius: 2px;
 }
 
+#tag-dezena{
+  color: #ffa600
+}
+
 /* Painel personalizado — diferenciado */
 .custom-banner {
   background: var(--brown-deep);
