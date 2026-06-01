@@ -841,15 +841,19 @@ footer strong {
 
 .theme-fab .icon-sun {
   display: none;
+  user-select: none;
 }
 .theme-fab .icon-moon {
-  display: block;
+  display: block; 
+  user-select:none ;
 }
 [data-theme="dark"] .theme-fab .icon-sun {
   display: block;
+  user-select: none;
 }
 [data-theme="dark"] .theme-fab .icon-moon {
   display: none;
+  user-select: none;
 }
 
 [data-theme="dark"] .theme-fab {
