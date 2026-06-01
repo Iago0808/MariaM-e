@@ -305,12 +305,17 @@ nav {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  background: var(--gold-pale);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 5rem;
   border: 2px solid rgba(184, 146, 42, 0.25);
+}
+
+.about-icon-circle img{
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 50%;   /*Deixa redondinho laele */
 }
 
 .about-caption {
@@ -323,7 +328,7 @@ nav {
 
 .about-text h2 {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
   font-weight: 400;
   color: var(--brown-deep);
   margin-bottom: 1rem;
