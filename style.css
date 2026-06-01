@@ -825,6 +825,7 @@ footer strong {
 }
 
 .theme-fab:hover {
+  user-select: none;
   transform: scale(1.12) rotate(15deg);
   box-shadow:
     0 6px 28px rgba(0, 0, 0, 0.3),
