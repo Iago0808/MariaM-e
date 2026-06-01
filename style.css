@@ -800,6 +800,7 @@ footer strong {
 
 /* ─── BOTÃO FLUTUANTE MODO NOTURNO ─── */
 .theme-fab {
+  user-select: none;
   position: fixed;
   bottom: 2rem;
   right: 2rem;
