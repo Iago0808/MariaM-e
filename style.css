@@ -312,10 +312,10 @@ nav {
   border: 2px solid rgba(184, 146, 42, 0.25);
 }
 
-.about-icon-circle img{
+.about-icon-circle img {
   object-fit: cover;
   overflow: hidden;
-  border-radius: 50%;   /*Deixa redondinho laele */
+  border-radius: 50%; /*Deixa redondinho laele */
 }
 
 .about-caption {
@@ -845,8 +845,8 @@ footer strong {
   user-select: none;
 }
 .theme-fab .icon-moon {
-  display: block; 
-  user-select:none ;
+  display: block;
+  user-select: none;
 }
 [data-theme="dark"] .theme-fab .icon-sun {
   display: block;
