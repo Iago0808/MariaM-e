@@ -602,6 +602,20 @@ nav {
   padding: 0.3rem 0.7rem;
 }
 
+.product-tag-sale {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--brown-deep);
+  color: var(--gold-pale);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+}
+
+
 .product-info {
   padding: 1.4rem;
 }
@@ -915,6 +929,10 @@ footer strong {
   color: #0d0900;
 }
 
+[data-theme="dark"] .product-tag-sale {
+  background: #d4aa4e;
+  color: #0d0900;
+}
 /* dark mode — hero cta */
 [data-theme="dark"] .hero-cta {
   background: #d4aa4e;
